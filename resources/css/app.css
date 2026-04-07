@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #8BC34A;
+  --color-primary-hover: #9CCC65;
+  --color-secondary: #002633;
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+}
+
+body {
+  @apply bg-background text-gray-800 antialiased font-sans transition-colors duration-300;
+}
+
+/* Custom Animation for Scroll Indicator */
+@keyframes bounce-fade {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.animate-bounce-fade {
+  animation: bounce-fade 2s infinite ease-in-out;
+}
