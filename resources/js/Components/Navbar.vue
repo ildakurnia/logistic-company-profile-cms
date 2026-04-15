@@ -43,7 +43,10 @@ onUnmounted(() => {
       : 'py-6 bg-transparent text-white border-b border-white/20'
   ]">
     <!-- Logo -->
-    <div class="font-bold text-2xl tracking-wider flex items-center gap-2 group cursor-pointer relative z-[60]">
+    <div :class="[
+      'font-bold text-2xl tracking-wider flex items-center gap-2 group cursor-pointer relative z-[60] transition-all duration-300',
+      !isScrolled && !isMenuOpen ? 'drop-shadow-md' : ''
+    ]">
       <div :class="[
         'w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
         isScrolled || isMenuOpen ? 'bg-primary text-secondary shadow-md' : 'bg-primary/20 backdrop-blur'
@@ -55,7 +58,10 @@ onUnmounted(() => {
 
     <ul class="hidden md:flex gap-10 text-sm font-bold tracking-wide">
       <li v-for="item in ['Home', 'Our Business', 'News', 'Sustainability', 'About Us', 'Contact Us']" :key="item" 
-          class="relative py-2 group cursor-pointer transition-colors hover:text-primary">
+          :class="[
+            'relative py-2 group cursor-pointer transition-all duration-300 hover:text-primary',
+            !isScrolled && !isMenuOpen ? 'drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]' : ''
+          ]">
           {{ item }}
         <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
       </li>
